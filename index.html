@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Frame de 3 Filas</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #container {
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr;
+      height: 100vh;
+    }
+
+    #row1,
+    #row2,
+    #row3 {
+      border: none;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <iframe id="row1" src="1.html"></iframe>
+    <iframe id="row2" src="2.html"></iframe>
+    <iframe id="row3" src="3.html"></iframe>
+  </div>
+</body>
+</html>

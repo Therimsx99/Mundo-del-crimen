@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Universidad - Determinar Especialidad</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    label {
+      font-weight: bold;
+      color: #555;
+    }
+
+    input[type="number"] {
+      padding: 10px;
+      width: 200px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #resultado {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+  <script>
+    function determinarEspecialidad() {
+      var puntaje = parseInt(document.getElementById("puntaje").value);
+      var especialidad = "";
+
+      if (puntaje >= 90) {
+        especialidad = "Facultad de Comunicación";
+      } else if (puntaje >= 80) {
+        especialidad = "Facultad de Enfermería";
+      } else if (puntaje >= 70) {
+        especialidad = "Facultad de Prótesis";
+      } else {
+        especialidad = "No cumple con los requisitos mínimos";
+      }
+
+      document.getElementById("resultado").innerHTML = "Especialidad: " + especialidad;
+    }
+  </script>
+</head>
+<body>
+  <h1>Universidad - Determinar Especialidad</h1>
+  <label for="puntaje">Puntaje obtenido:</label>
+  <input type="number" id="puntaje">
+  <br>
+  <button onclick="determinarEspecialidad()">Determinar</button>
+  <br>
+  <div id="resultado"></div>
+</body>
+</html>

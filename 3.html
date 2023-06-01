@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+  <title>Tienda de Accesorios - Cálculo de Pago</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    label {
+      font-weight: bold;
+      color: #555;
+    }
+
+    select,
+    input[type="number"] {
+      padding: 10px;
+      width: 200px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #resultado {
+      margin-top: 20px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    #importeBruto,
+    #descuento,
+    #importeAPagar {
+      margin-bottom: 10px;
+    }
+
+    #importeBruto::before,
+    #descuento::before,
+    #importeAPagar::before {
+      display: inline-block;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+  <script>
+    function calcularImporte() {
+      var marca = document.getElementById("marca").value;
+      var cantidad = parseInt(document.getElementById("cantidad").value);
+      var precioUnitario = 1.50;
+      var descuento = 0;
+      var importeBruto = cantidad * precioUnitario;
+      var importeAPagar = 0;
+
+      switch (marca) {
+        case "sony":
+          descuento = 0.15;
+          break;
+        case "acer":
+          descuento = 0.12;
+          break;
+        case "princo":
+          descuento = 0.10;
+          break;
+        case "ibm":
+          descuento = 0.20;
+          break;
+        default:
+          descuento = 0;
+          break;
+      }
+
+      importeAPagar = importeBruto - (importeBruto * descuento);
+
+      document.getElementById("importeBruto").innerHTML = "Importe bruto: $" + importeBruto.toFixed(2);
+      document.getElementById("descuento").innerHTML = "Descuento: $" + (importeBruto * descuento).toFixed(2);
+      document.getElementById("importeAPagar").innerHTML = "Importe a pagar: $" + importeAPagar.toFixed(2);
+    }
+  </script>
+</head>
+<body>
+  <h1>Tienda de Accesorios - Cálculo de Pago</h1>
+  <label for="marca">Marca:</label>
+  <select id="marca">
+    <option value="sony">Sony</option>
+    <option value="acer">Acer</option>
+    <option value="princo">Princo</option>
+    <option value="ibm">IBM</option>
+  </select>
+  <br>
+  <label for="cantidad">Cantidad:</label>
+<input type="number" id="cantidad">
+<br>
+<button onclick="calcularImporte()">Calcular</button>
+
+  <div id="resultado">
+    <div id="importeBruto"></div>
+    <div id="descuento"></div>
+    <div id="importeAPagar"></div>
+  </div>
+</body>
+</html>
